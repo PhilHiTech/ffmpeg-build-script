@@ -19,6 +19,7 @@ NONFREE_AND_GPL=false
 LATEST=false
 MANPAGES=1
 CURRENT_PACKAGE_VERSION=0
+AUTOINSTALL=yes
 #TARGET='ffmpeg-build'
 
 
@@ -1063,8 +1064,8 @@ if [ "$INSTALL_NOW" = 1 ]; then
     SUDO=sudo
   fi
   $SUDO cp "$WORKSPACE/bin/ffmpeg" "$INSTALL_FOLDER/bin/ffmpeg"
-  $SUDO cp "$WORKSPACE/bin/ffprobe" "$INSTALL_FOLDER/bin/ffprobe"
-  $SUDO cp "$WORKSPACE/bin/ffplay" "$INSTALL_FOLDER/bin/ffplay"
+  # $SUDO cp "$WORKSPACE/bin/ffprobe" "$INSTALL_FOLDER/bin/ffprobe"
+  # $SUDO cp "$WORKSPACE/bin/ffplay" "$INSTALL_FOLDER/bin/ffplay"
   if [ $MANPAGES = 1 ]; then
     $SUDO mkdir -p "$INSTALL_FOLDER/share/man/man1"
     $SUDO cp "$WORKSPACE/share/man/man1"/ff* "$INSTALL_FOLDER/share/man/man1"
