@@ -892,15 +892,15 @@ if build "libsdl" "2.28.5"; then
   build_done "libsdl" $CURRENT_PACKAGE_VERSION
 fi
 
-if build "FreeType2" "2.11.1"; then
-  download "https://downloads.sourceforge.net/freetype/freetype-$CURRENT_PACKAGE_VERSION.tar.xz"
-  execute ./configure --prefix="${WORKSPACE}" --disable-shared --enable-static
-  execute make -j $MJOBS
-  execute make install
-  build_done "FreeType2" $CURRENT_PACKAGE_VERSION
-fi
+# if build "FreeType2" "2.11.1"; then
+  # download "https://downloads.sourceforge.net/freetype/freetype-$CURRENT_PACKAGE_VERSION.tar.xz"
+  # execute ./configure --prefix="${WORKSPACE}" --disable-shared --enable-static
+  # execute make -j $MJOBS
+  # execute make install
+  # build_done "FreeType2" $CURRENT_PACKAGE_VERSION
+# fi
 
-CONFIGURE_OPTIONS+=("--enable-libfreetype")
+# CONFIGURE_OPTIONS+=("--enable-libfreetype")
 
 if $NONFREE_AND_GPL; then
   if build "srt" "1.5.3"; then
