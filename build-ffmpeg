@@ -19,7 +19,7 @@ NONFREE_AND_GPL=false
 LATEST=false
 MANPAGES=1
 CURRENT_PACKAGE_VERSION=0
-AUTOINSTALL=yes
+AUTOINSTALL="yes"
 #TARGET='ffmpeg-build'
 
 
@@ -1043,8 +1043,8 @@ verify_binary_type
 echo ""
 echo "Building done. The following binaries can be found here:"
 echo "- ffmpeg: $WORKSPACE/bin/ffmpeg"
-echo "- ffprobe: $WORKSPACE/bin/ffprobe"
-echo "- ffplay: $WORKSPACE/bin/ffplay"
+# echo "- ffprobe: $WORKSPACE/bin/ffprobe"
+# echo "- ffplay: $WORKSPACE/bin/ffplay"
 echo ""
 
 INSTALL_NOW=0
