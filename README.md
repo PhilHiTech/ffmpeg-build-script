@@ -134,7 +134,8 @@ Options:
       --latest                   Build latest version of dependencies if newer available
   -c, --cleanup                  Remove all working dirs
       --small                    Prioritize small size over speed and usability; don't build manpages.
-      --full-static              Complete static build of ffmpeg (eg. glibc, pthreads etc...) **only Linux**
+      --only-audio               Build a only audio FFmpeg binary; don't build manpages
+      --full-static-audio        Complete static build of only audio ffmpeg (eg. glibc, pthreads etc...) **only Linux**
                                  Note: Because of the NSS (Name Service Switch), glibc does not recommend static links.
 ```
 
