@@ -4,7 +4,7 @@
 # LICENSE: https://github.com/markus-perl/ffmpeg-build-script/blob/master/LICENSE
 
 PROGNAME=$(basename "$0")
-FFMPEG_VERSION=6.1
+FFMPEG_VERSION=master
 SCRIPT_VERSION=1.50
 CWD=$(pwd)
 PACKAGES="$CWD/packages"
@@ -996,7 +996,7 @@ if [ -d "$CWD/.git" ]; then
 fi
 
 build "ffmpeg" "$FFMPEG_VERSION"
-download "https://github.com/FFmpeg/FFmpeg/archive/refs/heads/release/$FFMPEG_VERSION.tar.gz" "FFmpeg-release-$FFMPEG_VERSION.tar.gz"
+download "https://github.com/FFmpeg/FFmpeg/archive/refs/heads/master.tar.gz" "FFmpeg-release-$FFMPEG_VERSION.tar.gz"
 # shellcheck disable=SC2086
 ./configure "${CONFIGURE_OPTIONS[@]}" \
   --disable-debug \
