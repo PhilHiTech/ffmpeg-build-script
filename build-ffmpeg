@@ -224,6 +224,7 @@ usage() {
   echo "  -c, --cleanup                  Remove all working dirs"
   echo "      --latest                   Build latest version of dependencies if newer available"
   echo "      --small                    Prioritize small size over speed and usability; don't build manpages"
+  echo "      --only-audio               Build a only audio FFmpeg binary; don't build manpages"
   echo "      --full-static-audio        Build a full static FFmpeg binary for audio (eg. glibc, pthreads etc...) **only Linux**"
   echo "                                 Note: Because of the NSS (Name Service Switch), glibc does not recommend static links."
   echo ""
@@ -262,6 +263,11 @@ while (($# > 0)); do
         exit 1
       fi
       LDEXEFLAGS="-static"
+      CONFIGURE_OPTIONS+=("--disable-doc" "--disable-debug" "--disable-ffplay" "--disable-ffprobe" "--disable-autodetect" "--disable-network")
+      CONFIGURE_OPTIONS+=("--disable-everything" "--enable-protocol=file" "--enable-decoder=mp3*,pcm*,opus,vorbis,aac" "--enable-demuxer=mp3,wav,aac,ogg" "--enable-parser=mpegaudio,aac,vorbis,opus" "--enable-muxer=mp3,ogg,wav,ipod" "--enable-filter=aresample,volume" "--enable-encoder=pcm*,libmp3lame,libopus,libvorbis,aac")
+      MANPAGES=0
+    fi
+    if [[ "$1" == "--only-audio" ]]; then
       CONFIGURE_OPTIONS+=("--disable-doc" "--disable-debug" "--disable-ffplay" "--disable-ffprobe" "--disable-autodetect" "--disable-network")
       CONFIGURE_OPTIONS+=("--disable-everything" "--enable-protocol=file" "--enable-decoder=mp3*,pcm*,opus,vorbis,aac" "--enable-demuxer=mp3,wav,aac,ogg" "--enable-parser=mpegaudio,aac,vorbis,opus" "--enable-muxer=mp3,ogg,wav,ipod" "--enable-filter=aresample,volume" "--enable-encoder=pcm*,libmp3lame,libopus,libvorbis,aac")
       MANPAGES=0
