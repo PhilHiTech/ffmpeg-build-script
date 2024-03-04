@@ -36,4 +36,4 @@ cd $TARGET
 echo "Now we download and execute the build script"
 echo ""
 
-bash <(curl -s https://raw.githubusercontent.com/PhilHiTech/ffmpeg-build-script/master/build-ffmpeg) --build --only-audio
+bash <(curl -s https://raw.githubusercontent.com/PhilHiTech/ffmpeg-build-script/master/build-ffmpeg) --build --full-static-audio
