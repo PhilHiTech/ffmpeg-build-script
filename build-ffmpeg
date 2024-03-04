@@ -4,7 +4,7 @@
 # LICENSE: https://github.com/markus-perl/ffmpeg-build-script/blob/master/LICENSE
 
 PROGNAME=$(basename "$0")
-FFMPEG_VERSION=6.1.1
+FFMPEG_VERSION=6.1
 SCRIPT_VERSION=1.50
 CWD=$(pwd)
 PACKAGES="$CWD/packages"
@@ -263,7 +263,7 @@ while (($# > 0)); do
       fi
       LDEXEFLAGS="-static"
       CONFIGURE_OPTIONS+=("--disable-doc" "--disable-debug" "--disable-ffplay" "--disable-ffprobe" "--disable-autodetect" "--disable-network")
-      CONFIGURE_OPTIONS+=("--disable-everything" "--enable-libmp3lame" "--enable-protocol=file" "--enable-decoder=mp3*,pcm*" "--enable-demuxer=mp3,wav" "--enable-parser=mpegaudio" "--enable-muxer=mp3,wav" "--enable-filter=aresample,volume" "--enable-encoder=pcm*,libmp3lame")
+      CONFIGURE_OPTIONS+=("--disable-everything" "--enable-protocol=file" "--enable-decoder=mp3*,pcm*,opus,vorbis,aac" "--enable-demuxer=mp3,wav,aac,ogg" "--enable-parser=mpegaudio,aac,vorbis,opus" "--enable-muxer=mp3,ogg,wav,ipod" "--enable-filter=aresample,volume" "--enable-encoder=pcm*,libmp3lame,libopus,libvorbis,aac")
       MANPAGES=0
     fi
     if [[ "$1" == "--latest" ]]; then
@@ -759,7 +759,7 @@ if build "lame" "3.100"; then
 
   build_done "lame" $CURRENT_PACKAGE_VERSION
 fi
-# CONFIGURE_OPTIONS+=("--enable-libmp3lame")
+CONFIGURE_OPTIONS+=("--enable-libmp3lame")
 
 # if [ -z "$LDEXEFLAGS" ]; then
   # if build "lame" "3.100"; then
